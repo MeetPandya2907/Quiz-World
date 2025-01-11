@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    font-family: 'Roboto', sans-serif;
+    background: #011830; 
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+nav {
+    font-size: 18px;
+    width: 80%;
+    max-width: 1200px;
+    height: 80px;
+    margin: 2% auto;
+    background: #2980B9; /* Bright background color for nav */
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+nav:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Subtle hover effect */
+}
+
+nav .box {
+    background-color: #F39C12; /* Bright yellow */
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav .box:hover {
+    background-color: #F1C40F;
+    color: #fff;
+    transform: translateY(-5px); /* Hover lift effect */
+}
+
+nav .logo img {
+    width: 70px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+nav .logo img:hover {
+    transform: scale(1.1); /* Logo grow effect on hover */
+}
+
+.img {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img img {
+    width: 60%;
+    max-width: 600px;
+    opacity: 0.3;
+    border-radius: 50%;
+    transition: opacity 0.5s ease;
+}
+
+.img img:hover {
+    opacity: 0.6; /* Image opacity change on hover */
+}
+
+.content {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.content:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+}
+
+.content p {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.btn {
+    width: 70%;
+    padding: 15px 0;
+    background-color: #16A085; /* Teal color */
+    border: none;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+
+    background-color: #1ABC9C; /* Slightly lighter teal */
+    transform: translateY(-5px); /* Hover lift effect */
+    
+}
+
