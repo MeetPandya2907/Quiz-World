@@ -3,31 +3,69 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz World</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="Images/Quiz App.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
-  <div class="container">
+  <header>
     <nav>
       <div class="logo">
-        <img src="QW.jpeg" alt="img">
+        <img src="QW.jpeg" alt="Quiz World Logo">
       </div>
-      <div class="box">Home</div>
-      <div class="box">About</div>
-      <div class="box">Contact Us</div>
-      <div class="box">Login/Sign Up</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="login.html" class="btn-primary">Login/Sign Up</a></li>
+      </ul>
     </nav>
-    <div class="img">
-      <img src="QW.jpeg" alt="">
-      <div class="content">
-        <p>Welcome To Quiz World App</p>
-        <button class="btn">Login</button>
-        <button class="btn" style="margin-top: 2%;">Sign Up</button>
-      </div>
+  </header>
 
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="text-box">
+        <h1>Quiz World</h1>
+        <p>Unlock your knowledge with our exciting quizzes!</p>
+        <div class="hero-buttons">
+          <a href="login.html" class="btn">Login</a>
+          <a href="Sign-Up.html" class="btn">Sign Up</a>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <h2>About Quiz World</h2>
+      <p>
+        Welcome to Quiz World, the ultimate platform for fun and learning! 
+        With an extensive range of quizzes covering various topics, we aim to make education engaging and entertaining. 
+        Challenge yourself with brain-teasers, improve your skills, and compete with friends. 
+        Whether you're a student, a professional, or just someone who loves trivia, Quiz World is designed for you!
+      </p>
+      <p>
+        Our features include personalized quiz recommendations, competitive leaderboards, and insightful analytics to track your progress. 
+        Join today and discover the joy of learning in an interactive way!
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 Quiz World. All Rights Reserved.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>
