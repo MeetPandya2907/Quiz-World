@@ -8,34 +8,40 @@
 /* Body Styling */
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #011830, #022d56);
+    background: url(Images/Qwbg.png)no-repeat;
+    background-size: cover;
     display: flex;
-    justify-content: center;
+    
     align-items: center;
+    min-height: 100vh;
     color: #fff;
+    overflow: auto;
 }
 
 /* Login Container */
 .login-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
+    margin-top: 120px;
+    margin-left: 200px;
+    min-height: 100vh;
     padding: 20px;
 }
 
 /* Login Box */
-.login-box {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    width: 800px;
-    padding: 40px;
-    text-align: center;
+.login-box{
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
     animation: fadeIn 1s ease-in-out;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    
+  }
 
 .login-box:hover {
     transform: translateY(-5px);
@@ -45,7 +51,7 @@ body {
 /* Heading */
 h2 {
     font-size: 2.5rem;
-    color: black;
+    color: #00ddff;
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -66,7 +72,7 @@ input {
     border: 1px solid #ccc;
     border-radius: 8px;
     outline: none;
-    background-color: #f9f9f9;
+    background-color:transparent;
     transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
@@ -101,13 +107,16 @@ input:not(:placeholder-shown) + label {
     width: 100%;
     padding: 14px 0;
     font-size: 16px;
-    background: linear-gradient(135deg, #8e44ad, #732d91);
+    background-color: #00ddff;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
     transition: background 0.3s ease;
+}
+.btn-login a{
+    text-decoration: none;
 }
 
 .btn-login:hover {
@@ -119,7 +128,10 @@ input:not(:placeholder-shown) + label {
 .login-box2 {
     margin-top: 15px;
     padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     border-radius: 12px;
     text-align: center;
     width: 100%;
@@ -127,7 +139,7 @@ input:not(:placeholder-shown) + label {
 }
 
 .login-box2 p {
-    color: #333;
+    color: #fff;
     font-size: 14px;
 }
 

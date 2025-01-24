@@ -1,0 +1,128 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background: #011f3f;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .quiz-container {
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    background: #0a3d62;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+  }
+  
+  header {
+    background: #1c5679;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .timer {
+    width: 80px;
+    height: 80px;
+    background: #f39c12;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  /* .timer::before {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    background: #1c5679;
+    border-radius: 50%;
+    z-index: 1;
+  } */
+  
+  .timer span {
+    position: relative;
+    z-index: 2;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .question-box {
+    background: #0e4c75;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  
+  .options-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .option-btn {
+    background: #1c5679;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .option-btn:hover {
+    background: #f39c12;
+    transform: scale(1.05);
+  }
+  
+  .option-btn.selected {
+    background-color: #0056b3; /* Highlight for selected answer */
+  }
+  
+  .submit-btn {
+    margin-top: 10px;
+    margin-left:220px;
+    background: #f39c12;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .submit-btn:hover {
+    background: #e67e22;
+    transform: scale(1.05);
+  }
+  

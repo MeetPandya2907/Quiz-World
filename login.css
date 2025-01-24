@@ -8,7 +8,7 @@
 /* Body Styling */
 body {
     font-family: 'Roboto', sans-serif;
-    background: url(Qwbg.png)no-repeat;
+    background: url(Images/Qwbg.png)no-repeat;
     background-size: cover;
     display: flex;
     
@@ -114,6 +114,9 @@ input:not(:placeholder-shown) + label {
     cursor: pointer;
     font-weight: bold;
     transition: background 0.3s ease;
+}
+.btn-login a{
+    text-decoration: none;
 }
 
 .btn-login:hover {
