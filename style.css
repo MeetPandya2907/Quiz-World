@@ -1,17 +1,36 @@
+:root {
+  --primary-color: #F39C12;
+  --secondary-color: #011830;
+  --accent-color: #00FFD5;
+  --text-color: #ffffff;
+  --card-bg: rgba(0, 0, 0, 0.7);
+}
 /* General Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+.logo h1 {
+  font-size: 2.2rem;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 5px rgba(243, 156, 18, 0.3));
+}
 body {
   font-family: 'Roboto', sans-serif;
   background: #f4f4f4;
   color: #333;
   line-height: 1.6;
 }
-
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 header {
   background: transparent;
   padding: 20px 0;
@@ -19,9 +38,11 @@ header {
   position: sticky;
   top: 0;
   z-index: 50;
+  backdrop-filter: blur(20px);
 }
 .sec-top{
-  background: url(Images/Qwbg.png)no-repeat;
+  background-color: #011830;
+  /* background: url(Images/darkbg.jpeg)no-repeat; */
   background-size: cover;
 
 }
@@ -77,10 +98,39 @@ nav .nav-links a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* position: relative; */
+  position: relative;
   color: #fff;
 }
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+.hero::after, .hero::before {
+  content: '';
+  position: absolute;
+  background-image: conic-gradient(from var(--angle), #ff4545,#00ff99,#006aff,#ff4545);
+  top: 304px;
+  left: 675px;
+  width: 500px;
+  height: 250px;
+  border-radius: 10px;
+  translate: -50% -50%;
+  padding: 24px;
+  animation: 3s spin linear infinite;
+}
+.hero::before{
+  filter: blur(1.5rem);
+}
 
+@keyframes spin{
+  from{
+    --angle:0deg;
+  }
+  to{
+    --angle:360deg;
+  }
+}
 /* .hero-overlay {
   position: absolute;
   width: 200px;
@@ -96,8 +146,8 @@ nav .nav-links a:hover {
 }
 
 .text-box {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 30px;
+  background: black;
+  padding: 54px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -113,16 +163,76 @@ nav .nav-links a:hover {
 }
 
 .hero-buttons .btn {
-  background: #F39C12;
-  color: #fff;
-  padding: 15px 30px;
   margin: 10px;
+  padding: 15px 40px;
+  border: none;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
   border-radius: 30px;
-  text-decoration: none;
+  background: gray;
   font-size: 1.2rem;
-  transition: background 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
+/* Glowing Effect */
+.hero-buttons .btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  left: 0;
+  top: 0;
+  border-radius: 30px;
+}
+
+.hero-buttons .btn::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #FF0000, #FF7300, #FFFB00, #48FF00,
+    #00FFD5, #002BFF, #FF00C8, #FF0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 30px;
+  opacity: 0;
+}
+
+/* Hover Effects */
+.hero-buttons .btn:hover::before {
+  opacity: 1;
+}
+
+.hero-buttons .btn:hover {
+  transform: scale(1.05);
+}
+
+/* Keyframes for Glowing Animation */
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
 .hero-buttons .btn:hover {
   background: #F1C40F;
   transform: scale(1.1);

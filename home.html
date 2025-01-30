@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz World</title>
     <link rel="stylesheet" href="home.css">
+    <link rel="icon" href="Images/Quiz App.png">
 </head>
 <body>
 
@@ -14,8 +15,7 @@
             <div class="logo">
                 <h1>Quiz World</h1>
             </div>
-            <ul class="nav-links
-            ">
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -24,32 +24,34 @@
     </header>
 
     <section id="hero" class="hero">
-    <!-- Hero Section -->
+        <!-- Hero Section -->
         <div class="hero-content">
             <h2>Welcome to Quiz World!</h2>
             <p>Test your knowledge with exciting quizzes in various categories.</p>
             <a href="#categories" class="btn">Explore Categories</a>
         </div>
-    <!-- </section> -->
+    </section>
 
     <!-- Categories Section -->
     <section id="categories" class="categories">
         <h2>Choose Your Category</h2>
         <div class="category-buttons">
-            <button class="category-btn" onclick="startCategoryQuiz('Science')">Science</button>
-            <button class="category-btn" onclick="startCategoryQuiz('History')">History</button>
-            <button class="category-btn" onclick="startCategoryQuiz('Sports')">Sports</button>
-            <button class="category-btn" onclick="startCategoryQuiz('Technology')">Technology</button>
-            <button class="category-btn" onclick="startCategoryQuiz('Movies')">Movies</button>
-            <button class="category-btn" onclick="startCategoryQuiz('Music')">Music</button>
-        </div>
+    <button class="category-btn" onclick="loadCategory('Science')">Science</button>
+    <button class="category-btn" onclick="loadCategory('History')">History</button>
+    <button class="category-btn" onclick="loadCategory('Sports')">Sports</button>
+    <button class="category-btn" onclick="loadCategory('Technology')">Information Technology</button>
+    <button class="category-btn" onclick="loadCategory('Movies')">Cine World</button>
+    <button class="category-btn" onclick="loadCategory('Music')">Mythology</button>
+</div>
     </section>
-    </section>
+
     <!-- Start Quiz Section -->
     <section id="start-quiz" class="start-quiz">
-        <h2>Ready for a Quiz?</h2>
-        <p>Click below to start a random quiz or choose a category above!</p>
-        <button class="start-btn" onclick="startQuiz()">Start a Random Quiz</button>
+        <div class="start-content">
+            <h2>Ready for a Quiz?</h2>
+            <p>Click below to start a random quiz or choose a category above!</p>
+            <button class="start-btn" onclick="startQuiz()">Start a Random Quiz</button>
+        </div>
     </section>
 
     <!-- Featured Quiz Section -->

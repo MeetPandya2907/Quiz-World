@@ -2,35 +2,25 @@
 const questions = {
     Science: [
         { question: "What is the chemical symbol for water?", options: ["H2O", "O2", "CO2", "H2"], answer: "H2O" },
-        { question: "What planet is closest to the sun?", options: ["Earth", "Mercury", "Venus", "Mars"], answer: "Mercury" }
+        { question: "What planet is closest to the sun?", options: ["Earth", "Mercury", "Venus", "Mars"], answer: "Mercury" },
     ],
     History: [
         { question: "Who was the first president of the USA?", options: ["Lincoln", "Washington", "Jefferson", "Adams"], answer: "Washington" },
-        { question: "When did World War II end?", options: ["1945", "1918", "1939", "1965"], answer: "1945" }
+        { question: "When did World War II end?", options: ["1945", "1918", "1939", "1965"], answer: "1945" },
     ],
-    Sports: [],
-    Technology: [],
-    Movies: [],
-    Music: []
+    // Add other categories like Sports, Technology, Movies, Music, etc.
 };
 
-// Get category from URL parameter
-const urlParams = new URLSearchParams(window.location.search);
-let currentCategory = urlParams.get('category') || 'Science';
+let currentCategory = "Science"; // Default category (will change based on the page)
 let usedQuestions = [];
 let timerInterval;
 let timeLeft = 30;
 let selectedOption = null;
 
 const questionDiv = document.getElementById("question");
-const optionsDiv = document.getElementById("options");
+const optionsDiv = document.getElementById("option");
 const timerDiv = document.getElementById("timer");
 const submitBtn = document.getElementById("submit-btn");
-
-// Initialize quiz only on category pages
-if (window.location.pathname.includes('category.html')) {
-    document.addEventListener('DOMContentLoaded', startQuiz);
-}
 
 function startQuiz() {
     loadRandomQuestion();
@@ -38,30 +28,28 @@ function startQuiz() {
 }
 
 function getRandomQuestion() {
-    if (usedQuestions.length === questions[currentCategory].length) {
-        usedQuestions = []; // Reset used questions
-    }
-    
+    // Keep picking a random question until we find one that hasn't been used
     let randomIndex;
     do {
         randomIndex = Math.floor(Math.random() * questions[currentCategory].length);
     } while (usedQuestions.includes(randomIndex));
-    
-    usedQuestions.push(randomIndex);
+
+    usedQuestions.push(randomIndex); // Track used questions
     return questions[currentCategory][randomIndex];
 }
 
 function loadRandomQuestion() {
-    if (!questions[currentCategory] || questions[currentCategory].length === 0) {
-        alert("No questions available for this category!");
+    if (usedQuestions.length === questions[currentCategory].length) {
+        alert("Quiz completed!");
+        submitBtn.style.display = "none"; // Hide submit button after the quiz
         return;
     }
 
     const currentQuestion = getRandomQuestion();
     questionDiv.textContent = currentQuestion.question;
     optionsDiv.innerHTML = "";
-    submitBtn.style.display = "none";
-    selectedOption = null;
+    submitBtn.style.display = "none"; // Hide submit button initially
+    selectedOption = null; // Reset selected option
 
     currentQuestion.options.forEach(option => {
         const button = document.createElement("button");
@@ -73,55 +61,45 @@ function loadRandomQuestion() {
 }
 
 function handleSelection(button, option) {
-    document.querySelectorAll(".option-btn").forEach(btn => btn.classList.remove("selected"));
+    const allButtons = document.querySelectorAll(".option-btn");
+    allButtons.forEach(btn => btn.classList.remove("selected"));
     button.classList.add("selected");
     selectedOption = option;
     submitBtn.style.display = "block";
 }
 
 function startTimer() {
-    clearInterval(timerInterval);
     timeLeft = 30;
     timerDiv.textContent = timeLeft;
     timerDiv.style.color = "green";
-    
     timerInterval = setInterval(() => {
         timeLeft--;
         timerDiv.textContent = timeLeft;
 
         if (timeLeft <= 3) timerDiv.style.color = "red";
+
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
-            handleTimeout();
+            alert("Time's up!");
+            loadRandomQuestion();
         }
     }, 1000);
 }
 
-function handleTimeout() {
-    alert("Time's up!");
-    loadRandomQuestion();
-    startTimer();
-}
-
 function handleSubmit() {
-    clearInterval(timerInterval);
+    clearInterval(timerInterval); // Stop the timer
+
     const currentQuestion = questions[currentCategory][usedQuestions[usedQuestions.length - 1]];
-    
     if (selectedOption === currentQuestion.answer) {
         alert("Correct!");
     } else {
-        alert(`Wrong! The correct answer was: ${currentQuestion.answer}`);
+        alert("Wrong!");
     }
 
     loadRandomQuestion();
-    startTimer();
 }
 
-if (submitBtn) {
-    submitBtn.addEventListener("click", handleSubmit);
-}
+submitBtn.addEventListener("click", handleSubmit);
 
-// Category button handler
-function loadCategory(category) {
-    window.location.href = `category.html?category=${encodeURIComponent(category)}`;
-}
+// Start the quiz for the specific category
+startQuiz();
