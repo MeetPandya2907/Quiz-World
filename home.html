@@ -11,7 +11,7 @@
 
     <!-- Navigation -->
     <header>
-        <nav>
+        <nav id="navbar">
             <div class="logo">
                 <h1>Quiz World</h1>
             </div>
@@ -33,17 +33,53 @@
     </section>
 
     <!-- Categories Section -->
-    <section id="categories" class="categories">
+    <section class="categories" id="categories">
         <h2>Choose Your Category</h2>
-        <div class="category-buttons">
-    <button class="category-btn" onclick="loadCategory('Science')">Science</button>
-    <button class="category-btn" onclick="loadCategory('History')">History</button>
-    <button class="category-btn" onclick="loadCategory('Sports')">Sports</button>
-    <button class="category-btn" onclick="loadCategory('Technology')">Information Technology</button>
-    <button class="category-btn" onclick="loadCategory('Movies')">Cine World</button>
-    <button class="category-btn" onclick="loadCategory('Music')">Mythology</button>
-</div>
+        <div class="category-grid">
+            <div class="category-card" onclick="startQuiz('science')">
+                <h3>Science</h3>
+                <p>Explore scientific knowledge</p>
+            </div>
+            <div class="category-card" onclick="startQuiz('history')">
+                <h3>History</h3>
+                <p>Journey through time</p>
+            </div>
+            <div class="category-card" onclick="startQuiz('technology')">
+                <h3>Technology</h3>
+                <p>Modern tech challenges</p>
+            </div>
+            <div class="category-card" onclick="startQuiz('sports')">
+                <h3>Sports</h3>
+                <p>From Stadiums to Stats – Be the MVP!</p>
+            </div>
+            <div class="category-card" onclick="startQuiz('cineworld')">
+                <h3>CineWorld</h3>
+                <p>Lights, Camera, Action!</p>
+            </div>
+            <div class="category-card" onclick="startQuiz('mythology')">
+                <h3>Mythology</h3>
+                <p>Legends of Lore: Stories from the Past</p>
+            </div>
+        </div>
     </section>
+    <div class="quiz-container" id="quizPage" style="display: none;">
+        <div class="timer" id="timer">30s</div>
+        <div class="question-box">
+            <h2 id="question"></h2>
+            <div class="options-container" id="options"></div>
+            <button class="submit-btn" onclick="checkAnswer()" id="submitBtn" disabled>Submit</button>
+        </div>
+    </div>
+
+    <!-- Dialog Box -->
+    <div class="dialog-overlay" id="dialogOverlay">
+        <div class="dialog-box" id="dialogBox">
+            <button class="close-dialog" onclick="closeDialog()">&times;</button>
+            <h3 id="dialogTitle"></h3>
+            <p id="dialogMessage"></p>
+            <button class="next-btn" onclick="nextQuestion()" id="nextBtn">Next Question</button>
+        </div>
+    </div>
 
     <!-- Start Quiz Section -->
     <section id="start-quiz" class="start-quiz">
@@ -65,10 +101,10 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer id="footer">
         <p>&copy; 2025 Quiz World. All rights reserved.</p>
     </footer>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
