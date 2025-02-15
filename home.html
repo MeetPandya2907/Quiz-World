@@ -1,153 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz World</title>
-    <link rel="stylesheet" href="home.css">
-    <link rel="icon" href="Images/Quiz App.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz World</title>
+  <link rel="stylesheet" href="home.css" />
+  <link rel="icon" href="Quiz App.png" />
+  
 </head>
 <body>
 
-    <!-- Navigation -->
-    <header>
-        <nav id="navbar">
-            <div class="logo">
-                <h1>Quiz World</h1>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Navigation -->
+  <header>
+    <nav id="navbar">
+      <div class="logo">
+        <h1>Quiz World</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section id="hero" class="hero">
-        <!-- Hero Section -->
-        <div class="hero-content">
-            <h2>Welcome to Quiz World!</h2>
-            <p>Test your knowledge with exciting quizzes in various categories.</p>
-            <a href="#categories" class="btn">Explore Categories</a>
-        </div>
-    </section>
-
-    <!-- Categories Section -->
-    <section class="categories" id="categories">
-        <h2>Choose Your Category</h2>
-        <div class="category-grid">
-            <div class="category-card" onclick="startQuiz('science')">
-                <h3>Science</h3>
-                <p>Explore scientific knowledge</p>
-            </div>
-            <div class="category-card" onclick="startQuiz('history')">
-                <h3>History</h3>
-                <p>Journey through time</p>
-            </div>
-            <div class="category-card" onclick="startQuiz('technology')">
-                <h3>Technology</h3>
-                <p>Modern tech challenges</p>
-            </div>
-            <div class="category-card" onclick="startQuiz('sports')">
-                <h3>Sports</h3>
-                <p>From Stadiums to Stats – Be the MVP!</p>
-            </div>
-            <div class="category-card" onclick="startQuiz('cineworld')">
-                <h3>CineWorld</h3>
-                <p>Lights, Camera, Action!</p>
-            </div>
-            <div class="category-card" onclick="startQuiz('mythology')">
-                <h3>Mythology</h3>
-                <p>Legends of Lore: Stories from the Past</p>
-            </div>
-        </div>
-    </section>
-    <div class="quiz-container" id="quizPage" style="display: none;">
-        <div class="timer" id="timer">30s</div>
-        <div class="question-box">
-            <h2 id="question"></h2>
-            <div class="options-container" id="options"></div>
-            <button class="submit-btn" onclick="checkAnswer()" id="submitBtn" disabled>Submit</button>
-        </div>
+  <section id="hero" class="hero">
+    <!-- Hero Section -->
+    <div class="hero-content">
+      <h2>Welcome to Quiz World!</h2>
+      <p>Test your knowledge with exciting quizzes in various categories.</p>
+      <a href="#categories" class="btn">Explore Categories</a>
     </div>
+  </section>
 
-    <!-- Dialog Box -->
-    <div class="dialog-overlay" id="dialogOverlay">
-        <div class="dialog-box" id="dialogBox">
-            <button class="close-dialog" onclick="closeDialog()">&times;</button>
-            <h3 id="dialogTitle"></h3>
-            <p id="dialogMessage"></p>
-            <button class="next-btn" onclick="nextQuestion()" id="nextBtn">Next Question</button>
-        </div>
+  <!-- Categories Section -->
+  <section class="categories" id="categories">
+    <h2>Choose Your Category</h2>
+    <div class="category-grid">
+      <div class="category-card" onclick="startQuiz('science')">
+        <h3>Science</h3>
+        <p>Explore scientific knowledge</p>
+      </div>
+      <div class="category-card" onclick="startQuiz('history')">
+        <h3>History</h3>
+        <p>Journey through time</p>
+      </div>
+      <div class="category-card" onclick="startQuiz('technology')">
+        <h3>Technology</h3>
+        <p>Modern tech challenges</p>
+      </div>
+      <div class="category-card" onclick="startQuiz('sports')">
+        <h3>Sports</h3>
+        <p>From Stadiums to Stats – Be the MVP!</p>
+      </div>
+      <div class="category-card" onclick="startQuiz('cineworld')">
+        <h3>CineWorld</h3>
+        <p>Lights, Camera, Action!</p>
+      </div>
+      <div class="category-card" onclick="startQuiz('mythology')">
+        <h3>Mythology</h3>
+        <p>Legends of Lore: Stories from the Past</p>
+      </div>
     </div>
+  </section>
 
-    <!-- Start Quiz Section -->
-    <section id="start-quiz" class="start-quiz">
-        <div class="start-content">
-            <h2>Ready for a Quiz?</h2>
-            <p>Click below to start a random quiz or choose a category above!</p>
-            <button class="start-btn" onclick="startQuiz()">Start a Random Quiz</button>
-        </div>
-    </section>
+  <!-- Quiz Container -->
+  <div class="quiz-container" id="quizPage" style="display: none;">
+    <!-- Go Back Button at Top-Left -->
+    <button class="go-back-btn" onclick="goBack()">Go Back</button>
+    <div class="timer" id="timer">30s</div>
+    <div class="question-box">
+      <h2 id="question"></h2>
+      <div class="options-container" id="options"></div>
+      <!-- The submit button is hidden by default -->
+      <button class="submit-btn" onclick="checkAnswer()" id="submitBtn" style="display: none;" disabled>
+        Submit
+      </button>
+    </div>
+  </div>
 
-    <!-- Featured Quiz Section -->
-    <section id="featured" class="featured">
-        <h2>Featured Quiz</h2>
-        <div class="featured-quiz">
-            <h3>Ultimate General Knowledge Quiz</h3>
-            <p>Test your general knowledge in this all-in-one quiz.</p>
-            <a href="#" class="btn">Start Now</a>
-        </div>
-    </section>
-    <section id="about" class="about-section">
-        <div class="about-container">
-          <h2>About Quiz World</h2>
-          <p>
-            Welcome to Quiz World, the ultimate platform for fun and learning!
-            With an extensive range of quizzes covering various topics, we aim to make education engaging and entertaining.
-            Challenge yourself with brain-teasers, improve your skills, and compete with friends.
-            Whether you're a student, a professional, or just someone who loves trivia, Quiz World is designed for you!
-          </p>
-          <p>
-            Our features include personalized quiz recommendations, competitive leaderboards, and insightful analytics to
-            track your progress.
-            Join today and discover the joy of learning in an interactive way!
-          </p>
-        </div>
-      </section>
-    
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-container">
-          
-          <p>Questions? Call <a href="#">
-            123-456-919-1743</p></div>
-            <div class="contact">
-            <div class="sec1">
-              <p>FAQ</p>
-              <p>Privacy</p>
-              <p>Help Centre</p>
-            </div>
-            <div class="sec2">
-              <p>Cookie Preference</p>
-              <p>Account</p>
-              <p>Corporate Info</p>
-            </div>
-            <div class="sec3">
-              <p>Media Centre</p>
-              <p>T&C</p>
-              <p>Contact Us</p>
-            </div>
-          </div>
-          <p>&copy; 2025 Quiz World. All Rights Reserved.</p>
-          <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-      </footer>
-    
-    <script src="script.js"></script>
+  <!-- Dialog Box -->
+  <div class="dialog-overlay" id="dialogOverlay">
+    <div class="dialog-box" id="dialogBox">
+      <button class="close-dialog" onclick="closeDialog()">&times;</button>
+      <h3 id="dialogTitle"></h3>
+      <p id="dialogMessage"></p>
+      <button class="next-btn" onclick="nextQuestion()" id="nextBtn">Next Question</button>
+    </div>
+  </div>
+
+  <!-- Start Quiz Section -->
+  <section id="start-quiz" class="start-quiz">
+    <div class="start-content">
+      <h2>Ready for a Quiz?</h2>
+      <p>Click below to start a random quiz or choose a category above!</p>
+      <button class="start-btn" onclick="startQuiz()">Start a Random Quiz</button>
+    </div>
+  </section>
+
+  <!-- Featured Quiz Section -->
+  <section id="featured" class="featured">
+    <h2>Featured Quiz</h2>
+    <div class="featured-quiz">
+      <h3>Ultimate General Knowledge Quiz</h3>
+      <p>Test your general knowledge in this all-in-one quiz.</p>
+      <a href="#" class="btn">Start Now</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <p>&copy; 2025 Quiz World. All rights reserved.</p>
+  </footer>
+  
+  <script src="script.js"></script>
 </body>
 </html>

@@ -3045,14 +3045,11 @@ cineworld:[
 
 let score = 0;
 
-//
-// START QUIZ & SHUFFLE
-//
 function startQuiz(category) {
     // If no category is provided, choose one randomly
     if (!category) {
-        const categories = Object.keys(categoryQuestions);
-        category = categories[Math.floor(Math.random() * categories.length)];
+      const categories = Object.keys(categoryQuestions);
+      category = categories[Math.floor(Math.random() * categories.length)];
     }
     // Hide all other sections
     document.getElementById('footer').style.display = 'none';
@@ -3062,13 +3059,13 @@ function startQuiz(category) {
     document.getElementById('featured').style.display = 'none';
     document.getElementById('categories').style.display = 'none';
     document.getElementById('quizPage').style.display = 'block';
-
+    
     currentCategory = category;
     if (!categoryQuestions[category]) {
-        console.error(`No questions for category: ${category}`);
-        return;
+      console.error(`No questions for category: ${category}`);
+      return;
     }
-    // Use shuffleArray (which returns up to 30 questions) without an extra slice
+    // Shuffle and pick up to 30 questions
     questions = shuffleArray([...categoryQuestions[category]]);
     currentQuestion = 0;
     timeLeft = 30;
@@ -3076,129 +3073,150 @@ function startQuiz(category) {
     score = 0;
     loadQuestion();
     startTimer();
-}
-
-function shuffleArray(array) {
+  }
+  
+  function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
     }
     // Return at most 30 questions
     return array.slice(0, 30);
-}
-
-//
-// LOAD AND DISPLAY QUESTIONS
-//
-function loadQuestion() {
-    // Ensure there is a question to load
+  }
+  
+  //
+  // LOAD AND DISPLAY QUESTIONS
+  //
+  function loadQuestion() {
     if (!questions[currentQuestion]) {
-        console.error("No question available at index:", currentQuestion);
-        return;
+      console.error("No question available at index:", currentQuestion);
+      return;
     }
     const questionObj = questions[currentQuestion];
     document.getElementById('question').textContent = questionObj.question;
     const optionsContainer = document.getElementById('options');
     optionsContainer.innerHTML = '';
-
+  
+    // Hide the submit button for the new question
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.style.display = 'none';
+    submitBtn.disabled = true;
+  
     questionObj.options.forEach((option, index) => {
-        const button = document.createElement('button');
-        button.className = 'option-btn';
-        button.textContent = option;
-        button.onclick = () => selectOption(index);
-        optionsContainer.appendChild(button);
+      const button = document.createElement('button');
+      button.className = 'option-btn';
+      button.textContent = option;
+      button.onclick = () => selectOption(index);
+      optionsContainer.appendChild(button);
     });
-}
-
-function selectOption(index) {
+  }
+  
+  function selectOption(index) {
     selectedOption = index;
-    document.getElementById('submitBtn').disabled = false;
+    // Enable and show the submit button when an option is clicked
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = false;
+    submitBtn.style.display = 'block';
+  
+    // Reset background for all option buttons
     document.querySelectorAll('.option-btn').forEach(btn => {
-        btn.style.background = 'rgba(255, 255, 255, 0.05)';
+      btn.style.background = 'rgba(255, 255, 255, 0.05)';
     });
-    document.querySelectorAll('.option-btn')[index].style.background = 'rgba(243, 156, 18, 0.3)';
-}
-
-//
-// TIMER & ANSWER CHECK
-//
-function startTimer() {
+    // Highlight selected option
+    document.querySelectorAll('.option-btn')[index].style.background = '#7091e6';
+  }
+  
+  //
+  // TIMER & ANSWER CHECK
+  //
+  function startTimer() {
     if (timerId) clearInterval(timerId);
     timerId = setInterval(() => {
-        timeLeft--;
-        document.getElementById('timer').textContent = `${timeLeft}s`;
-        if (timeLeft <= 0) {
-            checkAnswer(true);
-        }
+      timeLeft--;
+      document.getElementById('timer').textContent = `${timeLeft}s`;
+      if (timeLeft <= 0) {
+        checkAnswer(true);
+      }
     }, 1000);
-}
-
-function checkAnswer(timeout = false) {
+  }
+  
+  function checkAnswer(timeout = false) {
     clearInterval(timerId);
     const correctAnswer = questions[currentQuestion].answer;
     const dialogBox = document.getElementById('dialogBox');
-
+  
     if (selectedOption === correctAnswer && !timeout) {
-        dialogBox.classList.add('dialog-correct');
-        dialogBox.classList.remove('dialog-incorrect');
-        document.getElementById('dialogTitle').textContent = 'Correct Answer!';
-        document.getElementById('dialogMessage').textContent = 'Well done!';
-        score++;
+      dialogBox.classList.add('dialog-correct');
+      dialogBox.classList.remove('dialog-incorrect');
+      document.getElementById('dialogTitle').textContent = 'Correct Answer!';
+      document.getElementById('dialogMessage').textContent = 'Well done!';
+      score++;
     } else {
-        dialogBox.classList.add('dialog-incorrect');
-        dialogBox.classList.remove('dialog-correct');
-        document.getElementById('dialogTitle').textContent = timeout ? 'Time Up!' : 'Incorrect Answer!';
-        document.getElementById('dialogMessage').textContent = timeout
-            ? 'Time has run out!'
-            : `Correct answer: ${questions[currentQuestion].options[correctAnswer]}`;
+      dialogBox.classList.add('dialog-incorrect');
+      dialogBox.classList.remove('dialog-correct');
+      document.getElementById('dialogTitle').textContent = timeout ? 'Time Up!' : 'Incorrect Answer!';
+      document.getElementById('dialogMessage').textContent = timeout
+        ? 'Time has run out!'
+        : `Correct answer: ${questions[currentQuestion].options[correctAnswer]}`;
     }
     document.getElementById('dialogOverlay').style.display = 'flex';
-}
-
-function nextQuestion() {
+  }
+  
+  function nextQuestion() {
     closeDialog();
     currentQuestion++;
     if (currentQuestion < questions.length) {
-        timeLeft = 30;
-        selectedOption = null;
-        document.getElementById('submitBtn').disabled = true;
-        loadQuestion();
-        startTimer();
+      timeLeft = 30;
+      selectedOption = null;
+      document.getElementById('submitBtn').disabled = true;
+      loadQuestion();
+      startTimer();
     } else {
-        endQuiz();
+      endQuiz();
     }
-}
-
-function closeDialog() {
+  }
+  
+  function closeDialog() {
     document.getElementById('dialogOverlay').style.display = 'none';
     document.getElementById('dialogBox').className = 'dialog-box';
-}
-
-//
-// FINAL SCORE DIALOG & RETURN TO CATEGORIES
-//
-function endQuiz() {
+  }
+  
+  //
+  // FINAL SCORE DIALOG & RETURN TO CATEGORIES
+  //
+  function endQuiz() {
     clearInterval(timerId);
     const dialogBox = document.getElementById('dialogBox');
     dialogBox.classList.remove('dialog-correct', 'dialog-incorrect');
-
+  
     document.getElementById('dialogTitle').textContent = 'Quiz Completed!';
     document.getElementById('dialogMessage').textContent = `You answered ${score} out of ${questions.length} questions correctly.`;
-
+  
     const nextBtn = document.getElementById('nextBtn');
     nextBtn.textContent = 'Return to Categories';
     nextBtn.onclick = returnToCategories;
-
+  
     document.getElementById('dialogOverlay').style.display = 'flex';
-}
-
-function returnToCategories() {
+  }
+  
+  function returnToCategories() {
     document.getElementById('dialogOverlay').style.display = 'none';
     document.getElementById('quizPage').style.display = 'none';
     document.getElementById('categories').style.display = 'block';
-
-    // Reset the "Next Question" button for future quizzes
+  
+    // Reset "Next Question" button for future quizzes
     const nextBtn = document.getElementById('nextBtn');
     nextBtn.textContent = 'Next Question';
     nextBtn.onclick = nextQuestion;
-}
+  }
+  function goBack() {
+    clearInterval(timerId);
+    document.getElementById('dialogOverlay').style.display = 'none';
+    document.getElementById('quizPage').style.display = 'none';
+    // Restore home page sections
+    document.getElementById('navbar').style.display = 'block';
+    document.getElementById('hero').style.display = 'block';
+    document.getElementById('start-quiz').style.display = 'block';
+    document.getElementById('featured').style.display = 'block';
+    document.getElementById('categories').style.display = 'block';
+  }

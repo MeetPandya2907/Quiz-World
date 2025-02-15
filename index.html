@@ -1,48 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quiz World</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="Images/Quiz App.png">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="Quiz App.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
-
 <body>
   <div class="sec-top">
-
     <header>
       <nav>
         <div class="logo">
           <h1>Quiz World</h1>
         </div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-        <li><a href="LS.html" class="btn-primary">Login/Sign Up</a></li>
-      </ul>
-    </nav>
-  </header>
+        <!-- Mobile Hamburger Menu -->
+        <div class="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="ls.html" class="btn-primary">Login/Sign Up</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <section id="home" class="hero">
-    <img src="back.jpeg" width="100px" alt="" srcset="">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="text-box">
-        <h1>Quiz World</h1>
-        <p>Unlock your knowledge with our exciting quizzes!</p>
-        <div class="hero-buttons">
-          <a href="LS.html" class="btn">Sign Up / Login</a>
-          
+    <section id="home" class="hero">
+      <img src="QZ1.png" alt="Quiz Image" />
+      <div class="hero-content">
+        <div class="text-box">
+          <h1>Quiz World</h1>
+          <p>Unlock your knowledge with our exciting quizzes!</p>
+          <div class="hero-buttons">
+            <a href="LS.html" class="btn">Sign Up / Login</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
 
   <section id="about" class="about-section">
     <div class="about-container">
@@ -63,10 +64,10 @@
 
   <footer id="contact">
     <div class="footer-container">
-      
-      <p>Questions? Call <a href="#">
-        123-456-919-1743</p></div>
-        <div class="contact">
+      <p>
+        Questions? Call <a href="#">123-456-919-1743</a>
+      </p>
+      <div class="contact">
         <div class="sec1">
           <p>FAQ</p>
           <p>Privacy</p>
@@ -91,6 +92,15 @@
       </div>
     </div>
   </footer>
-</body>
 
+  <script>
+    // Toggle mobile menu visibility
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
 </html>
