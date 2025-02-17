@@ -642,7 +642,7 @@ footer {
     margin: 0.5rem auto;
   }
   .timer {
-    top: 175px;
+    top: 130px;
     left: 50%;
     transform: translateX(-50%);
     right: auto;
