@@ -34,7 +34,8 @@ header {
   background-color: #1f2833;
   padding: 20px 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   z-index: 50;
   backdrop-filter: blur(20px);
@@ -122,9 +123,12 @@ nav {
 }
 
 .text-box {
-  background: transparent;
+  background-color: #1f2833;
+  border-radius: 40px;
   padding: 54px;
+  box-shadow: 0 0 20px #fff;
 }
+
 
 .text-box h1 {
   font-size: 3rem;

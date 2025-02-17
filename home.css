@@ -136,12 +136,15 @@ nav {
 .category-card {
   background: var(--card-bg);
   padding: 2rem;
+  color: #fff;
   border-radius: 15px;
   text-align: center;
   cursor: pointer;
   transition: transform 0.3s ease;
   position: relative;
   overflow: hidden;
+  font-weight: bolder;
+  z-index: 10;
 }
 
 .category-card:hover {
@@ -149,6 +152,101 @@ nav {
   box-shadow: 0 0 50px #66fcf1;
 }
 
+#science {
+  /* 1) Stack a semi-transparent gradient over your image */
+  background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.4), 
+      rgba(0, 0, 0, 0.4)
+    ),
+    url("Images/1.jpg") no-repeat center/cover;
+
+  /* 2) The blend mode merges them, darkening the image */
+  background-blend-mode: multiply;
+
+  /* 3) White text usually works best on a darker background */
+  color: #fff;
+}
+#history {
+  /* 1) Stack a semi-transparent gradient over your image */
+  background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.4), 
+      rgba(0, 0, 0, 0.4)
+    ),
+    url("Images/2.jpg") no-repeat center/cover;
+
+  /* 2) The blend mode merges them, darkening the image */
+  background-blend-mode: multiply;
+
+  /* 3) White text usually works best on a darker background */
+  color: #fff;
+}
+#tech {
+  /* 1) Stack a semi-transparent gradient over your image */
+  background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.4), 
+      rgba(0, 0, 0, 0.4)
+    ),
+    url("Images/3.webp") no-repeat center/cover;
+
+  /* 2) The blend mode merges them, darkening the image */
+  background-blend-mode: multiply;
+
+  /* 3) White text usually works best on a darker background */
+  color: #fff;
+}
+#sports {
+  /* 1) Stack a semi-transparent gradient over your image */
+  background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.4), 
+      rgba(0, 0, 0, 0.4)
+    ),
+    url("Images/4.jpg") no-repeat center/cover;
+
+  /* 2) The blend mode merges them, darkening the image */
+  background-blend-mode: multiply;
+
+  /* 3) White text usually works best on a darker background */
+  color: #fff;
+}
+#cine {
+  /* 1) Stack a semi-transparent gradient over your image */
+  background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.4), 
+      rgba(0, 0, 0, 0.4)
+    ),
+    url("Images/5.jpg") no-repeat center/cover;
+
+  /* 2) The blend mode merges them, darkening the image */
+  background-blend-mode: multiply;
+
+  /* 3) White text usually works best on a darker background */
+  color: #fff;
+}
+#mythology {
+  /* 1) Stack a semi-transparent gradient over your image */
+  background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.4), 
+      rgba(0, 0, 0, 0.4)
+    ),
+    url("Images/6.jpg") no-repeat center/cover;
+
+  /* 2) The blend mode merges them, darkening the image */
+  background-blend-mode: multiply;
+
+  /* 3) White text usually works best on a darker background */
+  color: #fff;
+}
+
+.category-card h3 p{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
 .category-card::before {
   content: '';
   position: absolute;
@@ -163,6 +261,7 @@ nav {
       transparent
   );
   transition: 0.5s;
+  z-index: 2;
 }
 
 .category-card:hover::before {
