@@ -146,7 +146,10 @@ nav {
   font-weight: bolder;
   z-index: 10;
 }
-
+.category-card p{
+  font-size: 25px;
+  margin-bottom: 1rem;
+}
 .category-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 50px #66fcf1;
@@ -159,7 +162,7 @@ nav {
       rgba(0, 0, 0, 0.4), 
       rgba(0, 0, 0, 0.4)
     ),
-    url("Images/1.jpg") no-repeat center/cover;
+    url("1.jpg") no-repeat center/cover;
 
   /* 2) The blend mode merges them, darkening the image */
   background-blend-mode: multiply;
@@ -174,7 +177,7 @@ nav {
       rgba(0, 0, 0, 0.4), 
       rgba(0, 0, 0, 0.4)
     ),
-    url("Images/2.jpg") no-repeat center/cover;
+    url("2.jpg") no-repeat center/cover;
 
   /* 2) The blend mode merges them, darkening the image */
   background-blend-mode: multiply;
@@ -189,7 +192,7 @@ nav {
       rgba(0, 0, 0, 0.4), 
       rgba(0, 0, 0, 0.4)
     ),
-    url("Images/3.webp") no-repeat center/cover;
+    url("3.webp") no-repeat center/cover;
 
   /* 2) The blend mode merges them, darkening the image */
   background-blend-mode: multiply;
@@ -204,7 +207,7 @@ nav {
       rgba(0, 0, 0, 0.4), 
       rgba(0, 0, 0, 0.4)
     ),
-    url("Images/4.jpg") no-repeat center/cover;
+    url("4.jpg") no-repeat center/cover;
 
   /* 2) The blend mode merges them, darkening the image */
   background-blend-mode: multiply;
@@ -219,7 +222,7 @@ nav {
       rgba(0, 0, 0, 0.4), 
       rgba(0, 0, 0, 0.4)
     ),
-    url("Images/5.jpg") no-repeat center/cover;
+    url("5.jpg") no-repeat center/cover;
 
   /* 2) The blend mode merges them, darkening the image */
   background-blend-mode: multiply;
@@ -234,7 +237,7 @@ nav {
       rgba(0, 0, 0, 0.4), 
       rgba(0, 0, 0, 0.4)
     ),
-    url("Images/6.jpg") no-repeat center/cover;
+    url("6.jpg") no-repeat center/cover;
 
   /* 2) The blend mode merges them, darkening the image */
   background-blend-mode: multiply;
@@ -598,12 +601,14 @@ footer {
 /* Responsive styles for the Quiz Page */
 @media (max-width: 768px) {
   .quiz-container {
+    justify-content: center;
+    align-items: center;
     width: 90%;
     padding: 1rem;
     margin: 1rem auto;
   }
   .timer {
-    top: 15px;
+    top: 175px;
     left: 50%;
     transform: translateX(-50%);
     right: auto; /* Remove the right offset */
@@ -611,6 +616,7 @@ footer {
     font-size: 0.9rem;
   }
   .question-box {
+    margin-top: 50vw;
     padding: 1rem;
   }
   .option-btn {
@@ -636,11 +642,11 @@ footer {
     margin: 0.5rem auto;
   }
   .timer {
-    top: 10px;
+    top: 175px;
     left: 50%;
     transform: translateX(-50%);
     right: auto;
-    padding: 10px;
+    padding: 35px;
     font-size: 0.8rem;
   }
   .question-box {
