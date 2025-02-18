@@ -16,7 +16,7 @@ body {
 /* Header and Navigation */
 header {
   background: #1f2833;
-  backdrop-filter: blur(10px);
+ 
   position: fixed;
   width: 100%;
   top: 0;
@@ -38,6 +38,7 @@ nav {
   font-size: 2rem;
   background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
   -webkit-background-clip: text;
+  background-clip: none;
   -webkit-text-fill-color: transparent;
 }
 
@@ -281,7 +282,7 @@ nav {
   top: 25px;
   right: 630px;
   background: #45829E;
-  color: 0B0C10;
+  
   padding: 35px;
   border-radius: 200px;
   font-weight: bold;
@@ -532,6 +533,58 @@ footer {
   margin-top: 4rem;
   text-align: center;
 }
+.quiz-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.quiz-dialog-box {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 2px solid #FF0000;
+  text-align: center;
+  max-width: 500px;
+  position: relative;
+  animation: slideIn 0.3s ease;
+}
+
+.quiz-next-btn {
+  background: #45829E;
+  color: #66fcf1;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 30px;
+  margin: 2rem auto; /* Centers the button */
+  cursor: pointer;
+  font-weight: bolder;
+  transition: transform 0.3s ease;
+  display: block;  /* Make it block-level for margin auto to work */
+}
+
+.quiz-next-btn:hover {
+  transform: scale(1.05);
+}
+/* Optional: Example keyframes for slideIn animation */
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

@@ -3059,7 +3059,6 @@ function startQuiz(category) {
     document.getElementById('featured').style.display = 'none';
     document.getElementById('categories').style.display = 'none';
     document.getElementById('quizPage').style.display = 'block';
-    
     currentCategory = category;
     if (!categoryQuestions[category]) {
       console.error(`No questions for category: ${category}`);
@@ -3220,3 +3219,19 @@ function startQuiz(category) {
     document.getElementById('featured').style.display = 'block';
     document.getElementById('categories').style.display = 'block';
   }
+  // When the "Start Now" button is clicked, show the quiz dialog
+document.getElementById('featuredStartBtn').addEventListener('click', function(e) {
+  e.preventDefault(); // Prevent the default link behavior
+  showQuizDialog();
+});
+
+function showQuizDialog() {
+  document.getElementById('quizDialogOverlay').style.display = 'flex';
+}
+
+function closeQuizDialog() {
+  document.getElementById('quizDialogOverlay').style.display = 'none';
+}
+
+
+  

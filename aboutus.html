@@ -23,7 +23,7 @@
           <ul class="nav-links">
             <li><a href="home.html">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </nav>
       </header>
@@ -47,5 +47,15 @@
           </div>
         </section>
     </section>
+    <script>
+      // Toggle mobile menu visibility
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+  
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+      
+    </script>
 </body>
 </html>

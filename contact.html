@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="icon" href="Quiz App.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+</head>
+<body>
+    <div class="sec-top">
+    <header>
+        <nav>
+          <div class="logo">
+            <h1>Quiz World</h1>
+          </div>
+          <!-- Mobile Hamburger Menu -->
+          <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+    
+<span></span>
+    <section class="categories" id="categories">
+        <section id="about" class="about-section">
+        <div class="about-container">
+            <h2>Contact Us</h2>
+            <form action="">
+            <div class="row">
+                    <label for="name">Name :</label>                  
+                    <input type="text" class="text">
+
+                    <label for="email">E-Mail :</label>                  
+                    <input type="text" class="text">
+
+                    <label for="msg">Message :</label>                  
+                    <textarea name="msg" rows="7" cols="5"></textarea>
+
+                </div>
+            </form>
+            <button class="btn">Submit</button>
+          </div>
+        </section>
+    </section>
+    <footer id="contact">
+        <div class="footer-container">
+          <p>
+            Questions? Call <a href="#">123-456-919-1743</a>
+          </p>
+          <div class="contact">
+            <div class="sec1">
+              <p>FAQ</p>
+              <p>Privacy</p>
+              <p>Help Centre</p>
+            </div>
+            <div class="sec2">
+              <p>Cookie Preference</p>
+              <p>Account</p>
+              <p>Corporate Info</p>
+            </div>
+            <div class="sec3">
+              <p>Media Centre</p>
+              <p>T&C</p>
+              <p>Contact Us</p>
+            </div>
+          </div>
+          <p>&copy; 2025 Quiz World. All Rights Reserved.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </footer>
+    <script>
+      // Toggle mobile menu visibility
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+  
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+      
+    </script>
+</body>
+</html>

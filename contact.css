@@ -107,17 +107,8 @@ body {
     box-shadow: 0 0 50px #66fcf1;
   }
  
-  .category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  
-  .category-grid p{
-    padding: 10px;
-  
-  }
+
+ 
   .categories h2{
     text-align: center;
     
@@ -140,6 +131,35 @@ body {
     margin: 0 auto 15px;
   }
 
+  .row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+  .row .text{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+  }
+
+  .btn {
+    background: #45829E;
+    color: #66fcf1;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 30px;
+    margin: 2rem auto; /* Centers the button */
+    cursor: pointer;
+    font-weight: bolder;
+    transition: transform 0.3s ease;
+    display: block;  /* Make it block-level for margin auto to work */
+  }
+
+  .btn:hover {
+    transform: scale(1.05);
+  }
   @media (max-width: 768px) {
     /* Navigation adjustments */
     nav {
@@ -192,3 +212,45 @@ body {
       margin: 4rem 1.2rem;
     }
   }
+  .contact {
+    padding: 50px;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .contact div {
+    flex: 1;
+    min-width: 150px;
+  }
+  footer {
+    color: #fff;
+    background: #011830;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .footer-container p {
+    margin: 5px 0;
+  }
+  
+  .social-links a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    color: var(--primary-color);
+  }
+  

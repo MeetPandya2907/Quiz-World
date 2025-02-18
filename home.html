@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quiz World</title>
   <link rel="stylesheet" href="home.css" />
   <link rel="icon" href="Quiz App.png" />
-  
+
 </head>
+
 <body>
 
   <!-- Navigation -->
@@ -18,7 +20,7 @@
       </div>
       <ul class="nav-links">
         <li><a href="#">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="aboutus.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -99,20 +101,34 @@
   </section>
 
   <!-- Featured Quiz Section -->
+  <!-- Quiz Dialog HTML -->
+  <div class="quiz-dialog-overlay" id="quizDialogOverlay">
+    <div class="quiz-dialog-box" id="quizDialogBox">
+      <p id="quizDialogTitle">Coming Soon!</p>
+      <p id="quizDialogMessage">This feature is under development.</p>
+      <button class="quiz-next-btn" onclick="closeQuizDialog()" id="quizNextBtn">OK</button>
+    </div>
+  </div>
+
+  <!-- Featured Quiz Section HTML -->
   <section id="featured" class="featured">
     <h2>Featured Quiz</h2>
     <div class="featured-quiz">
       <p>Ultimate General Knowledge Quiz</p>
       <p>Test your general knowledge in this all-in-one quiz.</p>
-      <a href="#" class="btn">Start Now</a>
+      <a href="#" class="btn" id="featuredStartBtn">Start Now</a>
     </div>
   </section>
+
+
+
 
   <!-- Footer -->
   <footer id="footer">
     <p>&copy; 2025 Quiz World. All rights reserved.</p>
   </footer>
-  
+
   <script src="script.js"></script>
 </body>
+
 </html>
