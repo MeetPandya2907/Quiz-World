@@ -103,6 +103,17 @@
     });
     
   </script>
-  
+  <script>
+    async function getVisitorCount() {
+      try {
+        const response = await fetch('/api/count');
+        const data = await response.json();
+        document.getElementById('visitorCount').innerText = data.count;
+      } catch (error) {
+        console.error('Error fetching visitor count:', error);
+      }
+    }
+    getVisitorCount();
+  </script>
 </body>
 </html>
